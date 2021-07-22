@@ -1,5 +1,5 @@
-dropdb twitter_clone
-createdb twitter_clone
+#dropdb twitter_clone
+#createdb twitter_clone
 pip install django
 pip install Pillow
 pip install psycopg2

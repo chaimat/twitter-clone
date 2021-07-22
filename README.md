@@ -28,6 +28,8 @@ Documentation for Twitter Clone can be found on the [`docs/`](./docs) folder
 
 ## Set-up
 
+First create a python 3.7+ virtual env and install sqlite if needed for django database.
+
 If you want to locally run this project on your machine it is extremly simple because I created scripts to automate all of the process.
 
 > Warning: If you have a database called `twitter_clone` on your local machine the scripts will delete and recreate it in the initial set-up script
