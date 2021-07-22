@@ -53,6 +53,8 @@ def get_topics_to_follow(Topic, ObjectDoesNotExist, random):
         all_topics = None
         latest_topic = None
 
+    if latest_topic is None:
+        return []
     topics_to_follow = []
 
     for i in range(5):

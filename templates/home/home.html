@@ -40,7 +40,7 @@
 <!-- all tweets listing -->
 <div id="tweet-cell-container">
 
-  {% for tweet in tweet_feed %}
+  {% for tweet in all_tweets %}
 
     <div id="tweet-cell">
 
@@ -52,7 +52,9 @@
         {% endif %}
       </div>
       <div id="tweet-cell-right-part">
-        <p id="tweet-cell-header"><b><a href="{% url 'other_user_profile' tweet.user.user.username %}">{{ tweet.user.full_name }}</a></b> @{{ tweet.user.user.username }} · {{ tweet.creation_date }}</p>
+        <p id="tweet-cell-header"><b>
+{#            <a href="{% url 'other_user_profile' tweet.user.user.username %}">{{ tweet.user.full_name }}</a>#}
+        </b> @{{ tweet.user.user.username }} · {{ tweet.creation_date }}</p>
         <p>{{ tweet.content|linebreaks }}</p>
 
         {% if tweet.image %}

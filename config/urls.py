@@ -12,7 +12,9 @@ urlpatterns = [
     path("", include("profile_app.urls")),
     path("", include("profile_settings.urls")),
     path("", include("search.urls")),
+    path('api-auth/', include('rest_framework.urls'))
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
