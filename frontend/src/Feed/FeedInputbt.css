@@ -1,0 +1,86 @@
+.feed-input-wrapper {
+  box-sizing: border-box;
+  border: 1px solid #d2d2d2;
+  border-radius: 12px;
+  padding: 24px;
+  /* width: 704px; */
+}
+
+.feed-input-msg-type-buttons-wrapper {
+  width: 100%;
+  display: flex;
+}
+
+.feed-input-opinion-button {
+  background: rgba(165, 217, 255, 0.2);
+  border: 0.5px solid #d2d2d2;
+  box-sizing: border-box;
+  border-radius: 8px 0px 0px 8px;
+  padding: 10px;
+  flex: 1;
+}
+
+.feed-input-trade-button {
+  border: 0.5px solid #d2d2d2;
+  box-sizing: border-box;
+  border-radius: 0px 8px 8px 0px;
+  padding: 10px;
+  flex: 1;
+}
+
+.feed-input-research-button {
+  border: 0.5px solid #d2d2d2;
+  box-sizing: border-box;
+  padding: 10px;
+  flex: 1;
+}
+
+.feed-input-textarea-outer-wrapper {
+  display: flex;
+  align-items: flex-start;
+  /* margin-top: 20px; */
+  margin-bottom: 32px;
+  width: 100%;
+  height: 100%;
+}
+
+.feed-input-textarea {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  margin: 0 20px;
+  font-size: 16px;
+  font-family: Inter;
+}
+
+.feed-input-textarea:focus {
+  outline: 0;
+}
+
+.feed-input-publish-button {
+  /* float: right; */
+  background: #22005a;
+  border-radius: 8px;
+  /* opacity: 0.34; */
+  color: #ffffff;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  /* line-height: 150%; */
+  padding: 6px 12px;
+  height: 98%;
+  display: flex;
+  align-items: center;
+}
+
+.feed-input-avatar {
+}
+
+.publish-insert-buttons-bottom-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  /* align-items: center; */
+}

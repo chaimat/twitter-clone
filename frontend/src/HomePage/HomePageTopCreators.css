@@ -1,0 +1,28 @@
+.home-top-creators-card {
+  /* width: 254px; */
+}
+
+.home-top-creators-table {
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0 18px;
+  width: 100%;
+}
+.home-top-creator-row {
+  width: 100%;
+}
+.home-top-creator-row td:first-child {
+  /* padding-right: 8px; */
+}
+
+.top-creator-name {
+  text-align: left;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #333333;
+  /* white-space: nowrap; */
+  width: 90%;
+}

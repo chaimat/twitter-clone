@@ -1,0 +1,51 @@
+/* for top coins and creators tabs */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&family=Open+Sans:wght@400;600;800&display=swap");
+
+.home-top-card {
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 24px 24px 0 24px;
+  flex: 1;
+  height: 100%;
+}
+
+.home-top-heading {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.home-top-tabs {
+  display: flex;
+}
+
+.home-top-tab {
+  padding: 0px 10px;
+  border: 0.5px solid rgba(101, 0, 203, 0.1);
+  box-sizing: border-box;
+  border-radius: 21px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 22px;
+  /* identical to box height, or 183% */
+
+  color: #6500cb;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.home-top-tab-selected {
+  background: rgba(101, 0, 203, 0.12);
+}
+
+.home-page-wrapper {
+  background: #f5f7ff;
+  height: 100%;
+  width: 100%;
+}

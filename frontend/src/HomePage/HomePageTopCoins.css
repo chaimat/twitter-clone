@@ -1,0 +1,41 @@
+.home-top-coins-table {
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0 24px;
+  width: 100%;
+}
+
+.home-top-coin-row {
+  width: 100%;
+}
+
+.top-coin-name {
+  text-align: left;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #333333;
+  /* white-space: nowrap; */
+  /* width: 90%; */
+}
+
+.home-top-coin-market {
+  color: #828282;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.home-top-coin-change {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-top-coin-change-text {
+  width: 40px;
+}

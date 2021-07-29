@@ -1,0 +1,45 @@
+.insert-buttons-outer-wrappper {
+  margin-bottom: 20px;
+}
+.insert-buttons-wrapper {
+  border: 0.5px solid #d2d2d2;
+  box-sizing: border-box;
+  filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.04));
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  width: 210px;
+}
+
+.insert-buttons-right {
+  display: flex;
+  flex: none;
+  order: 2;
+  /* flex-grow: 0; */
+  align-items: center;
+}
+
+.vertical-divider {
+  border-left: 6px solid green;
+  height: 500px;
+}
+
+.insert-button-icon {
+  margin-right: 8px;
+}
+
+.privacy-button {
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid #d2d2d2;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-left: 20px;
+}
+
+.insert-buttons-outer-wrappper {
+  display: flex;
+}

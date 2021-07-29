@@ -1,0 +1,171 @@
+.feed-message-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.feed-message-top-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feed-message-top-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.feed-message-username {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height, or 133% */
+
+  /* PRIMARY COLOR */
+
+  color: #22005a;
+}
+
+.feed-message-comment-username {
+  font-size: 16px;
+}
+
+.feed-message-time {
+  display: flex;
+  align-items: center;
+}
+
+.feed-message-time-text {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+
+  /* Gray 3 */
+  white-space: pre-line;
+  color: #828282;
+}
+
+.feed-message-time-icon {
+  margin-right: 9px;
+}
+
+.feed-message-top-right {
+  display: flex;
+  align-items: center;
+}
+
+.feed-message-type {
+  background: rgba(165, 217, 255, 0.2);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+
+  color: #3693d6;
+  margin-right: 16px;
+}
+
+.feed-message-text {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  /* or 150% */
+
+  /* Gray 2 */
+
+  color: #4f4f4f;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+.feed-message-comment-text {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  margin-bottom: 8px;
+}
+.feed-message-like-comment-wrapper {
+  display: flex;
+}
+
+.feed-message-like {
+  background: #f0e6fa;
+  border-radius: 4px;
+  padding: 3px 4px;
+  display: flex;
+  align-items: center;
+}
+
+.feed-message-like-text {
+  margin-left: 7px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #6500cb;
+}
+
+.feed-message-comment-icon-text {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+
+  /* Gray 3 */
+
+  color: #828282;
+  margin-left: 5px;
+}
+
+.feed-message-comment-icon-wrapper {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 24px;
+  padding: 3px 4px;
+  cursor: pointer;
+}
+
+.feed-message-comment-like {
+  display: flex;
+  align-items: flex-end;
+}
+
+.feed-message-comment-wrapper {
+  background: rgba(123, 97, 255, 0.03);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+}
+.feed-message-avatar {
+  margin-right: 14px;
+}
+.feed-message-comment-avatar {
+  width: 28px;
+}
+
+.feed-message-like-comment-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+
+  /* Gray 3 */
+
+  color: #828282;
+  margin-left: 7px;
+}

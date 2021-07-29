@@ -1,0 +1,77 @@
+.home-bottom-card {
+  background: #ffffff;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.home-bottom-card-img-content-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.home-bottom-card-wrapper {
+  width: 500px;
+}
+
+.home-bottom-card-content {
+  margin-left: 15px;
+}
+
+.home-bottom-card-heading {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #333333;
+  margin-bottom: 6px;
+}
+
+.home-bottom-card-text {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #828282;
+}
+
+.home-bottom-card-subscribers {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height, or 143% */
+
+  /* Gray 3 */
+  margin: 12px auto 16px;
+  color: #828282;
+}
+
+.home-bottom-card-join-waitlist {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: #6500cb;
+}
+
+.home-bottom-card-wrapper {
+  background: #ffffff;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  width: 411px;
+  margin: auto 20px;
+}
+
+.home-bottom-cards-list-wrapper {
+  margin-top: 50px;
+  display: flex;
+  overflow-x: auto;
+}
+
+.home-bottom-cards-list-wrapper::-webkit-scrollbar {
+  display: none;
+}
