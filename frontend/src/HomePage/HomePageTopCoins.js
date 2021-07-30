@@ -6,31 +6,31 @@ export default class HomePageTopCoins extends React.Component {
   state = { selectedTab: "1d" };
   coins1d = [
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Bitcoin",
       marketCap: "150k",
       change: 11
     },
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Etherium",
       marketCap: "80k",
       change: 11
     },
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Tether",
       marketCap: "90k",
       change: 71
     },
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Binance Coin",
       marketCap: "90k",
       change: -11
     },
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Doge Coin",
       marketCap: "30k",
       change: -7
@@ -39,31 +39,31 @@ export default class HomePageTopCoins extends React.Component {
 
   coins1w = [
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Etherium",
       marketCap: "20k",
       change: 41
     },
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Bitcoin",
       marketCap: "50k",
       change: -78
     },
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Binance Coin",
       marketCap: "40k",
       change: 21
     },
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Tether",
       marketCap: "990k",
       change: -22
     },
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Doge Coin",
       marketCap: "20k",
       change: 0
@@ -72,31 +72,31 @@ export default class HomePageTopCoins extends React.Component {
 
   coins1m = [
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Bitcoin",
       marketCap: "100k",
       change: -48
     },
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Etherium",
       marketCap: "20k",
       change: 41
     },
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Doge Coin",
       marketCap: "20k",
       change: 0
     },
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Tether",
       marketCap: "990k",
       change: -22
     },
     {
-      avatar: "https://4kt15.csb.app/coin.png",
+      avatar: `${process.env.PUBLIC_URL}/coin.png`,
       name: "Binance Coin",
       marketCap: "20k",
       change: -21
@@ -140,7 +140,7 @@ export default class HomePageTopCoins extends React.Component {
                 {Math.abs(change)}%
               </span>
               <img
-                src={`https://4kt15.csb.app/${
+                src={`${process.env.PUBLIC_URL}/${
                   change > 0 ? "pos" : "neg"
                 }_change.png`}
                 alt="change symbol"

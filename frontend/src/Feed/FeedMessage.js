@@ -17,7 +17,7 @@ class FeedMessage extends React.Component {
             this.props.comment && `feed-message-comment-avatar`
           }`}
           alt="avatar"
-          src="https://4kt15.csb.app/avatar.png"
+          src={`${process.env.PUBLIC_URL}/avatar.png`}
         />
         <div>
           <div className="feed-message-content">
@@ -34,7 +34,7 @@ class FeedMessage extends React.Component {
                 <div className="feed-message-time">
                   <img
                     className="feed-message-time-icon"
-                    src="https://4kt15.csb.app/earth.png"
+                    src={`${process.env.PUBLIC_URL}/earth.png`}
                     alt="earth_img"
                   />{" "}
                   <span className="feed-message-time-text">1 d</span>
@@ -47,7 +47,7 @@ class FeedMessage extends React.Component {
                     {" "}
                     <img
                       className="feed-message-menu-icon"
-                      src="https://4kt15.csb.app/menudots.png"
+                      src={`${process.env.PUBLIC_URL}/menudots.png`}
                       alt="amenu"
                     />{" "}
                   </div>
@@ -72,7 +72,7 @@ class FeedMessage extends React.Component {
                 <div className="feed-message-like">
                   <img
                     className="feed-message-like-icon"
-                    src="https://4kt15.csb.app/thumbs 1.png"
+                    src={`${process.env.PUBLIC_URL}/thumbs 1.png`}
                     alt="earth_img"
                   />
                   <span className="feed-message-like-text">Like</span>
@@ -83,7 +83,7 @@ class FeedMessage extends React.Component {
                 >
                   <img
                     className="feed-message-comment-icon"
-                    src="https://4kt15.csb.app/comments.png"
+                    src={`${process.env.PUBLIC_URL}/comments.png`}
                     alt="earth_img"
                   />
                   <span className="feed-message-comment-icon-text">4</span>
@@ -94,7 +94,7 @@ class FeedMessage extends React.Component {
                 <div className="feed-message-comment-like">
                   <img
                     className="feed-message-like-icon"
-                    src="https://4kt15.csb.app/thumbs 1.png"
+                    src={`${process.env.PUBLIC_URL}/thumbs 1.png`}
                     alt="thumbs_img"
                   />
                   <span className="feed-message-like-comment-text">3</span>

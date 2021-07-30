@@ -62,7 +62,7 @@ export default class HomeBottomCard extends React.Component {
     },
     {
       title: "Stock Analyst",
-      imgSrc: "https://4kt15.csb.app/homecard.png",
+      imgSrc: `${process.env.PUBLIC_URL}/homecard.png`,
       description:
         "The leap into electronic typesetting, remaining essentially unchanged. We aim at providing crypto news.",
       subscribers: 225,
@@ -79,7 +79,7 @@ export default class HomeBottomCard extends React.Component {
             <div className="home-bottom-card-img-content-wrapper">
               <img
                 alt="home page card"
-                src="https://4kt15.csb.app/homecard.png"
+                src={`${process.env.PUBLIC_URL}/homecard.png`}
               />
               <div className="home-bottom-card-content">
                 <div className="home-bottom-card-heading">{card.title}</div>
@@ -91,7 +91,7 @@ export default class HomeBottomCard extends React.Component {
                   Join Waitlist{" "}
                   <img
                     alt="right arrow"
-                    src="https://4kt15.csb.app/rightarrow.png"
+                    src={`${process.env.PUBLIC_URL}/rightarrow.png`}
                   />
                 </div>
               </div>
@@ -113,7 +113,7 @@ export default class HomeBottomCard extends React.Component {
             <div className="home-bottom-card-img-content-wrapper">
               <img
                 alt="home page card"
-                src="https://4kt15.csb.app/homecard.png"
+                src={`${process.env.PUBLIC_URL}/homecard.png`}
               />
               <div className="home-bottom-card-content">
                 <div className="home-bottom-card-heading">Stock Analysis</div>
@@ -128,7 +128,7 @@ export default class HomeBottomCard extends React.Component {
                   Join Waitlist{" "}
                   <img
                     alt="right arrow"
-                    src="https://4kt15.csb.app/rightarrow.png"
+                    src={`${process.env.PUBLIC_URL}/rightarrow.png`}
                   />
                 </div>
               </div>

@@ -10,27 +10,27 @@ export default class HomePageTopCreators extends React.Component {
 
   traders = [
     {
-      avatar: "https://4kt15.csb.app/avatar.png",
+      avatar: `${process.env.PUBLIC_URL}/avatar.png`,
       name: "M Cuban",
       percentage: 87
     },
     {
-      avatar: "https://4kt15.csb.app/avatar.png",
+      avatar: `${process.env.PUBLIC_URL}/avatar.png`,
       name: "Shri Haran",
       percentage: 36
     },
     {
-      avatar: "https://4kt15.csb.app/avatar.png",
+      avatar: `${process.env.PUBLIC_URL}/avatar.png`,
       name: "SomeOne with a long Name",
       percentage: -45
     },
     {
-      avatar: "https://4kt15.csb.app/avatar.png",
+      avatar: `${process.env.PUBLIC_URL}/avatar.png`,
       name: "Hello",
       percentage: -3
     },
     {
-      avatar: "https://4kt15.csb.app/avatar.png",
+      avatar: `${process.env.PUBLIC_URL}/avatar.png`,
       name: "Someone With an extremely long name that it doesnt fit the div",
       percentage: 100
     }
@@ -38,27 +38,27 @@ export default class HomePageTopCreators extends React.Component {
 
   analysts = [
     {
-      avatar: "https://4kt15.csb.app/avatar.png",
+      avatar: `${process.env.PUBLIC_URL}/avatar.png`,
       name: "Analyst 1",
       percentage: 43
     },
     {
-      avatar: "https://4kt15.csb.app/avatar.png",
+      avatar: `${process.env.PUBLIC_URL}/avatar.png`,
       name: "Virat Kohli",
       percentage: 56
     },
     {
-      avatar: "https://4kt15.csb.app/avatar.png",
+      avatar: `${process.env.PUBLIC_URL}/avatar.png`,
       name: "Priya Prakash Warrier",
       percentage: 29
     },
     {
-      avatar: "https://4kt15.csb.app/avatar.png",
+      avatar: `${process.env.PUBLIC_URL}/avatar.png`,
       name: "Ram Rahim Singh Insan",
       percentage: -8
     },
     {
-      avatar: "https://4kt15.csb.app/avatar.png",
+      avatar: `${process.env.PUBLIC_URL}/avatar.png`,
       name: "Om",
       percentage: 0
     }

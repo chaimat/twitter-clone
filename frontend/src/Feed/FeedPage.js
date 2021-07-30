@@ -1,5 +1,5 @@
 import React from "react";
-import FeedInputBT from "./FeedInputbt";
+import FeedInput from "./FeedInput";
 import FeedMessage from "./FeedMessage";
 import AsyncMention from "./AsycnMention";
 import Mentions from "./Mentions";
@@ -19,11 +19,11 @@ export default class FeedPage extends React.Component {
           <Row>
             <Col span={22} offset={1}>
               <div>
-                <FeedInputBT type="feed" />
+                <FeedInput type="feed" />
                 <br />
                 <br />
                 <FeedMessage>
-                  <FeedInputBT type="comment" />
+                  <FeedInput type="comment" />
                   <FeedMessage comment>
                     <FeedMessage comment />
                     <FeedMessage comment />

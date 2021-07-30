@@ -14,39 +14,39 @@ class InsertButtons extends React.Component {
             <img
               alt="img"
               className="insert-button-icon"
-              src={"https://4kt15.csb.app/dollar.png"}
+              src={`${process.env.PUBLIC_URL}/dollar.png`}
             />
             <img
               alt="img"
               className="insert-button-icon"
-              src={"https://4kt15.csb.app/hashtag.png"}
+              src={`${process.env.PUBLIC_URL}/hashtag.png`}
             />
             <img
               alt="img"
               className="insert-button-icon"
-              src={"https://4kt15.csb.app/mention.png"}
+              src={`${process.env.PUBLIC_URL}/mention.png`}
             />
           </div>
           <div className="insert-buttons-right">
             <img
               alt="img"
               className="insert-button-icon"
-              src={"https://4kt15.csb.app/database.png"}
+              src={`${process.env.PUBLIC_URL}/database.png`}
             />
             <img
               alt="img"
               className="insert-button-icon"
-              src={"https://4kt15.csb.app/image.png"}
+              src={`${process.env.PUBLIC_URL}/image.png`}
             />
             <img
               alt="img"
               className="insert-button-icon"
-              src={"https://4kt15.csb.app/graph.png"}
+              src={`${process.env.PUBLIC_URL}/graph.png`}
             />
             <img
               alt="img"
               className="insert-button-icon"
-              src={"https://4kt15.csb.app/smiley.png"}
+              src={`${process.env.PUBLIC_URL}/smiley.png`}
             />
           </div>
         </div>
@@ -55,7 +55,7 @@ class InsertButtons extends React.Component {
             <img
               alt="img"
               className="insert-button-icon"
-              src={"https://4kt15.csb.app/earth.png"}
+              src={`${process.env.PUBLIC_URL}/earth.png`}
             />
             <span>Everyone</span>
           </div>
