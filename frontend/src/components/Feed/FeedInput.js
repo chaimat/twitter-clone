@@ -2,14 +2,36 @@ import React from "react";
 import "./FeedInput.css";
 import InsertButtons from "./InsertButtons";
 import autosize from "autosize";
-
-const COMMENT = "comment"
-const FEED = "feed"
-const MODAL = "modal"
+import { Modal } from "antd";
+import { localAPI } from "../../api/local";
+const COMMENT = "comment";
+const FEED = "feed";
+const MODAL = "modal";
 class FeedInput extends React.Component {
   componentDidMount() {
     autosize(this.textarea);
   }
+
+  state = {
+    isInputModalVisible: false,
+    feedInputText: "",
+  };
+
+  handleOpenInputModal = () => {
+    this.setState({ isInputModalVisible: true });
+  };
+
+  closeOpenInputModal = () => {
+    this.setState({ isInputModalVisible: false });
+  };
+
+  handlePublishFeedInput = () => {
+    alert(this.state.feedInputText);
+    localAPI.post("/tweet", {
+      tweet_type:"opinion",
+      content: this.state.feedInputText
+    });
+  };
 
   render() {
     return (
@@ -23,6 +45,18 @@ class FeedInput extends React.Component {
             : {}
         }
       >
+        <Modal
+          title="Create Opinion"
+          visible={this.state.isInputModalVisible}
+          onCancel={this.handleCloseInputModal}
+          footer={null}
+          bodyStyle={{ padding: 0 }}
+          className="feed-input-modal"
+          wrapClassName="feed-input-modal-dialog"
+        >
+          <FeedInput type="modal" />
+        </Modal>
+
         {!(this.props.type === COMMENT) && <InsertButtons privacy />}
 
         <div className="feed-input-textarea-outer-wrapper">
@@ -38,6 +72,10 @@ class FeedInput extends React.Component {
             type="text"
             style={this.props.type === COMMENT ? { fontSize: "14px" } : {}}
             ref={(c) => (this.textarea = c)}
+            onClick={
+              this.props.type === FEED ? this.handleOpenInputModal : null
+            }
+            onChange={(e) => this.setState({ feedInputText: e.target.value })}
           />
         </div>
         <div className="publish-insert-buttons-bottom-wrapper">
@@ -49,7 +87,10 @@ class FeedInput extends React.Component {
 
           {!(this.props.type === FEED) && (
             <div>
-              <div className="feed-input-publish-button">
+              <div
+                className="feed-input-publish-button"
+                onClick={this.handlePublishFeedInput}
+              >
                 {" "}
                 {this.props.type === COMMENT ? "Post" : "Publish"}{" "}
               </div>

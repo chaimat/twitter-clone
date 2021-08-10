@@ -21,6 +21,7 @@ export default function App() {
           <Route path="/feed" exact component={FeedPage} />
         </div>
       </Router>
+      {/* <HomePage /> */}
       {/* <AsyncMention />
         <Mentions />
         <br />
