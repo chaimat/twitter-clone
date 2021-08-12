@@ -7,8 +7,16 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
 
 def create_tweet(request: HttpRequest):
-    print(request)
-    print(request.POST)
+    # print(request)
+    # print(request.body["tweet_type"])
+
+    # body_unicode = request.body.decode('utf-8')
+    # body = json.loads(body_unicode)
+    # print(body)
+    # content = body['content'] 
+    # print(content)
+    # print(request.__dict__)
+    print("reached create_tweet")
     tweet_type = request.POST.get("tweet_type")
     print(tweet_type)
     if tweet_type == "opinion":
@@ -21,10 +29,12 @@ def create_tweet(request: HttpRequest):
 def create_opinion(request):
     # verify request params
     current_basic_user = get_current_user(request, User, ObjectDoesNotExist)
+    print("reached create_opinion 1")
     content = request.POST.get("content")
     print(content)
+    print("reached")
     post = Post(content=content)
-    tweet = Tweet(user=current_basic_user, archive=False, post_id=post.id, content=content)
+    tweet = Tweet(user=current_basic_user, post_id=post.id, content=content)
     post.save()
     tweet.save()
     print("Opnion saved")

@@ -44,7 +44,9 @@
   height: 100%;
 }
 
-.feed-input-textarea {
+.feed-input-textarea,
+.feed-input-mentions textarea,
+.feed-input-mentions {
   border: 0;
   width: 100%;
   height: 100%;
@@ -52,10 +54,19 @@
   margin: 0 20px;
   font-size: 16px;
   font-family: Inter;
+  background: #fff;
+  box-shadow: 0;
 }
 
-.feed-input-textarea:focus {
+.feed-input-textarea:focus *,
+.feed-input-mentions textarea:active,
+.feed-input-mentions textarea:focus,
+.feed-input-mentions,
+.feed-input-mentions:hover,
+.feed-input-mentions:focus {
   outline: 0;
+  border: 0;
+  box-shadow: none;
 }
 
 .feed-input-publish-button {
@@ -85,13 +96,13 @@
   /* align-items: center; */
 }
 
-.feed-input-modal .ant-modal-content{
+.feed-input-modal .ant-modal-content {
   border: 1px solid #d2d2d2;
   box-sizing: border-box;
   border-radius: 12px;
   overflow: hidden;
 }
 
-.feed-input-modal .ant-modal-header{
+.feed-input-modal .ant-modal-header {
   overflow: hidden;
 }

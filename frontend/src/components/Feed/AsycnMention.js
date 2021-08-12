@@ -53,12 +53,15 @@ class AsyncMention extends React.Component {
     const { users, loading } = this.state;
 
     return (
-      <div>
+      <div style={{width: "100%"}}>
         <Mentions
           style={{ width: "100%" }}
           loading={loading}
           onSearch={this.onSearch}
           onChange={(e) => this.handleTextAreaChange(e)}
+          {...this.props}
+          autoSize
+          // split="/^^|"
         >
           {users.map(({ login, avatar_url: avatar }) => (
             <Option
@@ -71,7 +74,8 @@ class AsyncMention extends React.Component {
             </Option>
           ))}
         </Mentions>
-        {this.state.text}
+        {/* {this.state.text} */}
+        {/* {users.map((value, key) => <span key={key}>{value}</span>)} */}
       </div>
     );
   }

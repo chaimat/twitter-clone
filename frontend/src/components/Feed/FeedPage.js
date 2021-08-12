@@ -19,6 +19,7 @@ export default class FeedPage extends React.Component {
           <Row>
             <Col span={22} offset={1}>
               <div>
+                <AsyncMention />
                 <FeedInput type="feed" />
                 <br />
                 <br />
