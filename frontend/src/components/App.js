@@ -1,12 +1,10 @@
 import "./styles.css";
 import FeedPage from "./Feed/FeedPage";
 import { Router, Route, Redirect } from "react-router-dom";
-import { createBrowserHistory } from "history";
 import HomePage from "./HomePage/HomePage";
 import Navbar from "./Navbar/Navbar";
 import { Space } from "antd";
-
-const history = createBrowserHistory();
+import history from "../utils/history";
 
 export default function App() {
   return (

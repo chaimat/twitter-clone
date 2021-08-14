@@ -3,12 +3,13 @@
   border: 1px solid #d2d2d2;
   border-radius: 12px;
   padding: 24px;
-  /* width: 704px; */
+  max-width: 704px;
 }
 
 .feed-input-msg-type-buttons-wrapper {
   width: 100%;
   display: flex;
+  margin-top: 24px;
 }
 
 .feed-input-opinion-button {
@@ -39,12 +40,60 @@
   display: flex;
   align-items: flex-start;
   /* margin-top: 20px; */
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
   width: 100%;
   height: 100%;
+  /* overflow: hidden; */
+  box-sizing: border-box;
 }
 
-.feed-input-textarea,
+.feed-input-text-wrapper {
+  flex: 1;
+  /* min-height: 200px; */
+  /* height: 300px; */
+}
+
+.feed-input-text-editor {
+}
+
+.feed-input-text-editor .ql-container {
+  border: 0 !important;
+  font-family: Inter !important;
+  font-size: 16px !important;
+}
+
+.feed-input-text-editor .ql-editor {
+  overflow-wrap: anywhere;
+  min-height: 90px;
+}
+
+.feed-input-area {
+  /* width: 100%; */
+  min-height: 93px;
+  /* margin: 0 20px; */
+  box-sizing: border-box;
+  /* overflow-x: hidden; */
+  /* flex: 1 1 auto; */
+  flex: 1;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+}
+
+.feed-input-area * {
+  border: 0 !important;
+  font-size: 16px !important;
+  /* min-height: 153px; */
+
+  font-family: Inter !important;
+  padding: 0 auto auto !important;
+  box-sizing: border-box !important;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+
+  /* min-height: 93px !important; */
+}
+
+/* .feed-input-textarea,
 .feed-input-mentions textarea,
 .feed-input-mentions {
   border: 0;
@@ -56,9 +105,9 @@
   font-family: Inter;
   background: #fff;
   box-shadow: 0;
-}
+} */
 
-.feed-input-textarea:focus *,
+/* .feed-input-textarea:focus *,
 .feed-input-mentions textarea:active,
 .feed-input-mentions textarea:focus,
 .feed-input-mentions,
@@ -67,7 +116,7 @@
   outline: 0;
   border: 0;
   box-shadow: none;
-}
+} */
 
 .feed-input-publish-button {
   /* float: right; */
@@ -100,9 +149,28 @@
   border: 1px solid #d2d2d2;
   box-sizing: border-box;
   border-radius: 12px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .feed-input-modal .ant-modal-header {
   overflow: hidden;
+}
+
+.mention-class {
+  /* color: green; */
+}
+
+.mentionat {
+  color: #22005a;
+  font-weight: 450;
+}
+
+.mentionhash {
+  color: #22005a;
+  font-weight: 450;
+}
+
+.mentiondol {
+  color: #22005a;
+  font-weight: 450;
 }

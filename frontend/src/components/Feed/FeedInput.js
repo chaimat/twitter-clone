@@ -3,57 +3,219 @@ import "./FeedInput.css";
 import InsertButtons from "./InsertButtons";
 import { Modal } from "antd";
 import { localAPI } from "../../api/local";
-import AsyncMention from "./AsycnMention";
 import Axios from "axios";
-import { Mentions } from "antd";
-import debounce from "lodash/debounce";
-import "./AsyncMentions.css";
-const { Option } = Mentions;
+import _map from "lodash/map";
+import ReactQuill from "react-quill";
+import Parser from "html-react-parser";
+import "quill-mention";
+import "quill-mention/dist/quill.mention.css";
+import history from "../../utils/history";
+
+const coins = [
+  {
+    id: "bitcoin",
+    value: "BTC",
+  },
+  {
+    id: "ethereum",
+    value: "ETH",
+  },
+  {
+    id: "ripple",
+    value: "XRP",
+  },
+  {
+    id: "litecoin",
+    value: "LTC",
+  },
+  {
+    id: "dash",
+    value: "DASH",
+  },
+  {
+    id: "monero",
+    value: "XMR",
+  },
+  {
+    id: "bitcoin-cash",
+    value: "BCH",
+  },
+  {
+    id: "eos",
+    value: "EOS",
+  },
+];
+
+const Embed = ReactQuill.Quill.import("blots/embed");
+
+class MentionBlot extends Embed {
+  constructor(scroll, node) {
+    super(scroll, node);
+    this.clickHandler = null;
+    this.className = "mention-class";
+  }
+
+  static create(data) {
+    const node = super.create();
+    if (data.denotationChar === "@") node.className = "mentionat";
+    if (data.denotationChar === "#") node.className = "mentionhash";
+    if (data.denotationChar === "$") node.className = "mentiondol";
+
+    // node.setAttribute("href", "/users/"+data.value)
+
+    const denotationChar = document.createElement("span");
+    denotationChar.className = "ql-mention-denotation-char";
+    denotationChar.innerHTML = data.denotationChar;
+    node.appendChild(denotationChar);
+    node.innerHTML += data.value;
+    node.className += " mention-class";
+    return MentionBlot.setDataValues(node, data);
+  }
+
+  static setDataValues(element, data) {
+    const domNode = element;
+    Object.keys(data).forEach((key) => {
+      domNode.dataset[key] = data[key];
+    });
+    return domNode;
+  }
+
+  static value(domNode) {
+    return domNode.dataset;
+  }
+
+  attach() {
+    super.attach();
+    this.clickHandler = (e) => {
+      history.push(`/users/${Object.assign({}, this.domNode.dataset).value}`);
+    };
+    this.domNode.addEventListener("click", this.clickHandler, false);
+  }
+
+  detach() {
+    super.detach();
+    if (this.clickHandler) {
+      this.domNode.removeEventListener("click", this.clickHandler);
+      this.clickHandler = null;
+    }
+  }
+}
+
+MentionBlot.blotName = "mention";
+MentionBlot.tagName = "span";
+// MentionBlot.className = "mention-class";
+
+ReactQuill.Quill.register(MentionBlot);
 const COMMENT = "comment";
 const FEED = "feed";
 const MODAL = "modal";
-class FeedInput extends React.Component {
-  constructor() {
-    super();
 
-    this.loadGithubUsers = debounce(this.loadGithubUsers, 800);
+const getUserNames = async function (searchTerm) {
+  console.log("searchTerm", searchTerm);
+  if (searchTerm.length < 1) return [];
+  const url = `https://api.github.com/search/users?q=${searchTerm}`;
+  let users;
+  await fetch(url)
+    .then((response) => response.json())
+    .then(({ items = [] }) => {
+      users = items.slice(0, 5).map((value, key) => ({
+        id: value.login,
+        value: value.login,
+      }));
+    });
+
+  return users;
+};
+
+class FeedInput extends React.Component {
+  componentDidMount() {
+    window.addEventListener("mention-clicked", (e) => {
+      this.handleMentionClicked(e);
+    });
   }
+
+  handleMentionClicked = (e) => {
+    console.log(e.value);
+    alert(e.value.value);
+  };
 
   state = {
     isInputModalVisible: false,
     feedInputText: "",
-    search: "",
     loading: false,
-    users: [],
-    text: "",
   };
 
-  onSearch = (search) => {
-    this.setState({ search, loading: !!search, users: [] });
-    console.log("Search:", search);
-    this.loadGithubUsers(search);
+  modules = {
+    toolbar: null,
+    // [
+    //   [{ header: [1, 2, false] }],
+    //   ["bold", "italic", "underline", "strike", "blockquote"],
+    //   [{ list: "ordered" }, { list: "bullet" }],
+    //   ["link", "image"]
+    // ],
+    mention: {
+      renderItem: (item, mentionChar) => {
+        console.log("mentionChar", mentionChar, item);
+        if (mentionChar === "@") return item.value;
+        else if (mentionChar === "#") {
+          console.log("value", item.value);
+          return null;
+        } else if (mentionChar === "$") {
+          return item.value;
+        }
+      },
+
+      allowedChars: /^[A-Za-z\sÅÄÖåäö]*$/,
+      blotName: "mention",
+      mentionDenotationChars: ["@", "#", "$"],
+      source: async function (searchTerm, renderItem, mentionChar) {
+        if (searchTerm === "") renderItem([], mentionChar);
+        else if (mentionChar === "@") {
+          const matches = await getUserNames(searchTerm);
+          console.log(matches);
+          renderItem(matches, mentionChar);
+        } else if (mentionChar === "#") {
+          renderItem(
+            [
+              {
+                id: searchTerm,
+                value: searchTerm,
+              },
+            ],
+            mentionChar
+          );
+        } else if (mentionChar === "$") {
+          const matches = [];
+          for (let i = 0; i < coins.length; i++)
+            if (~coins[i].value.toLowerCase().indexOf(searchTerm.toLowerCase()))
+              matches.push(coins[i]);
+          renderItem(matches, mentionChar);
+        }
+      },
+      listItemClass: "ql-mention-list-item ql-mention-custom",
+      mentionContainerClass: "ql-mention-list-container ql-mention-custom",
+      mentionListClass: "ql-mention-list ql-mention-custom",
+      selectKeys: [13, 32, 9],
+    },
   };
 
-  loadGithubUsers(key) {
-    if (!key) {
-      this.setState({
-        users: [],
-      });
-      return;
-    }
-
-    fetch(`https://api.github.com/search/users?q=${key}`)
-      .then((res) => res.json())
-      .then(({ items = [] }) => {
-        const { search } = this.state;
-        if (search !== key) return;
-
-        this.setState({
-          users: items.slice(0, 10),
-          loading: false,
-        });
-      });
-  }
+  formats = [
+    // "header",
+    // "bold",
+    // "italic",
+    // "underline",
+    // "strike",
+    // "blockquote",
+    // "list",
+    // "bullet",
+    // "indent",
+    // "link",
+    // "image",
+    "mention",
+  ];
+  handleProcedureContentChange = (content, delta, source, editor) => {
+    this.setState({ feedInputText: content });
+  };
 
   handleOpenInputModal = () => {
     this.setState({ isInputModalVisible: true });
@@ -68,29 +230,12 @@ class FeedInput extends React.Component {
     var params = new URLSearchParams();
     params.append("tweet_type", "opinion");
     params.append("content", this.state.feedInputText);
-    // localAPI.post("/tweet/", null, {
-    //   params: {
-    //     tweet_type: "opinion",
-    //     content: this.state.feedInputText,
-    //   },
-    // });
 
     Axios({
       method: "post",
       url: "http://localhost:8000/tweet/",
       data: params,
     });
-
-    // fetch("http://localhost:8000/tweet/", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     content: this.state.feedInputText,
-    //     tweet_type: "opinion",
-    //   }),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
   };
 
   render() {
@@ -113,6 +258,7 @@ class FeedInput extends React.Component {
           bodyStyle={{ padding: 0 }}
           className="feed-input-modal"
           wrapClassName="feed-input-modal-dialog"
+          width={709}
         >
           <FeedInput type="modal" />
         </Modal>
@@ -126,61 +272,29 @@ class FeedInput extends React.Component {
             alt="avatar"
             style={this.props.type === COMMENT ? { width: "28px" } : {}}
           />
-          {/* <div style={{ width: "100%" }}> */}
-          {/* <textarea
-            onClick={
-              this.props.type === FEED ? this.handleOpenInputModal : null
-            }
-            placeholder="What would you like to share today?"
-            className="feed-input-textarea"
-            type="text"
-            style={this.props.type === COMMENT ? { fontSize: "14px" } : {}}
-            ref={(c) => (this.textarea = c)}
-            onChange={(e) => this.setState({ feedInputText: e.target.value })}
-            // disabled={this.props.type === FEED}
-            readOnly={this.props.type === FEED}
-          /> */}
-          {/* <AsyncMention
-          onClick={
-              this.props.type === FEED ? this.handleOpenInputModal : null
-            }
-            placeholder="What would you like to share today?"
-            className="feed-input-textarea"
-            type="text"
-            style={this.props.type === COMMENT ? { fontSize: "14px" } : {}}
-            // ref={(c) => (this.textarea = c)}
-            onChange={(e) => this.setState({ feedInputText: e.target.value })}
-            // disabled={this.props.type === FEED}
-            readOnly={this.props.type === FEED}
-          /> */}
 
-          <Mentions
-            style={{ width: "100%" }}
-            loading={this.state.loading}
-            onSearch={this.onSearch}
-            onChange={(e) => this.setState({ feedInputText: e })}
-            autoSize
-            className="feed-input-mentions"
-            placeholder="What would you like to share today?"
-            readOnly={this.props.type === FEED}
-            style={this.props.type === COMMENT ? { fontSize: "14px" } : {}}
+          <div
+            className="feed-input-text-wrapper"
             onClick={
               this.props.type === FEED ? this.handleOpenInputModal : null
             }
           >
-            {this.state.users.map(({ login, avatar_url: avatar }) => (
-              <Option
-                key={login}
-                value={login}
-                className="antd-demo-dynamic-option"
-              >
-                <img className="mentions-img" src={avatar} alt={login} />
-                <span>{login}</span>
-              </Option>
-            ))}
-          </Mentions>
-
-          {/* </div> */}
+            <ReactQuill
+              theme="snow"
+              modules={this.modules}
+              formats={this.formats}
+              value={this.state.feedInputText}
+              onChange={this.handleProcedureContentChange}
+              className="feed-input-text-editor"
+              placeholder="What would you like to share today?"
+              readOnly={this.props.type === FEED}
+              style={
+                this.props.type === COMMENT
+                  ? { fontSize: "14px !important" }
+                  : {}
+              }
+            />
+          </div>
         </div>
         <div className="publish-insert-buttons-bottom-wrapper">
           {this.props.type === COMMENT && (

@@ -1,10 +1,9 @@
 import React from "react";
 import FeedInput from "./FeedInput";
 import FeedMessage from "./FeedMessage";
-import AsyncMention from "./AsycnMention";
-import Mentions from "./Mentions";
 import Navbar from "../Navbar/Navbar";
 import { Space, Row, Col } from "antd";
+
 
 export default class FeedPage extends React.Component {
   render() {
@@ -19,7 +18,7 @@ export default class FeedPage extends React.Component {
           <Row>
             <Col span={22} offset={1}>
               <div>
-                <AsyncMention />
+
                 <FeedInput type="feed" />
                 <br />
                 <br />
